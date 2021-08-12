@@ -1,0 +1,28 @@
+{
+    "autoscale": {
+        "min_workers": 2,
+        "max_workers": 4
+    },
+    "cluster_name": "<cluster-name>",
+    "spark_version": "8.4.x-scala2.12",
+    "spark_conf": {
+        "spark.databricks.passthrough.enabled": "true",
+        "spark.databricks.delta.preview.enabled": "true"
+    },
+    "azure_attributes": {
+        "first_on_demand": 1,
+        "availability": "SPOT_WITH_FALLBACK_AZURE",
+        "spot_bid_max_price": -1
+    },
+    "node_type_id": "Standard_D4s_v3",
+    "driver_node_type_id": "Standard_DS4_v2",
+    "ssh_public_keys": [],
+    "custom_tags": {},
+    "spark_env_vars": {},
+    "autotermination_minutes": 120,
+    "enable_elastic_disk": true,
+    "cluster_source": "UI",
+    "init_scripts": [],
+    "single_user_name": "<databricks-user-name>",
+    "cluster_id": "<unique-cluster-id>"
+}

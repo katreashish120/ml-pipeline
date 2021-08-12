@@ -1,0 +1,29 @@
+{
+    "name": "temperature",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Started",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "train_temperature",
+                    "type": "PipelineReference"
+                },
+                "parameters": {
+                    "input_path": "/mnt/<databricks-mount-name>/<path>/temperature/data/*.csv",
+                    "model_path": "/dbfs/mnt/<databricks-mount-name>/<path>/temperature/model/temperature-model.pkl"
+                }
+            }
+        ],
+        "type": "BlobEventsTrigger",
+        "typeProperties": {
+            "blobPathBeginsWith": "/<container>/blobs/<path>/temperature/data/",
+            "blobPathEndsWith": ".csv",
+            "ignoreEmptyBlobs": true,
+            "scope": "/subscriptions/<subscription-id>/resourceGroups/<resouce-group-id>/providers/Microsoft.Storage/storageAccounts/<adls-name>",
+            "events": [
+                "Microsoft.Storage.BlobCreated"
+            ]
+        }
+    }
+}

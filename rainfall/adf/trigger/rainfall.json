@@ -1,0 +1,29 @@
+{
+    "name": "rainfall",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Started",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "train_rainfall",
+                    "type": "PipelineReference"
+                },
+                "parameters": {
+                    "input_path": "/mnt/<databricks-mount-name>/<path>/rainfall/data/*.csv",
+                    "model_path": "/dbfs/mnt/<databricks-mount-name>/<path>/rainfall/model/rainfall-model.pkl"
+                }
+            }
+        ],
+        "type": "BlobEventsTrigger",
+        "typeProperties": {
+            "blobPathBeginsWith": "/<container>/blobs/<path>/rainfall/data/",
+            "blobPathEndsWith": ".csv",
+            "ignoreEmptyBlobs": true,
+            "scope": "/subscriptions/<subscription-id>/resourceGroups/<resouce-group-id>/providers/Microsoft.Storage/storageAccounts/<adls-name>",
+            "events": [
+                "Microsoft.Storage.BlobCreated"
+            ]
+        }
+    }
+}

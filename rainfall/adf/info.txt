@@ -1,0 +1,6 @@
+selected resource name:		train_rainfall
+selected resource type:		pipeline
+factory name:			<azure-data-factory-name>
+factory location:		<azure-region>
+subscription id:		<adf-subsctiption>
+time of download (UTC):		Thu, 12 Aug 2021 11:00:56 GMT

@@ -1,0 +1,22 @@
+{
+    "now": "2021-08-12T11:00:56.566Z",
+    "perfNow": 34363583.7,
+    "diagnosticCorrelation": "59a82409-db80-449f-a5e5-fdf762f8189f",
+    "source": "DownloadSupportFiles",
+    "environment": {
+        "productName": "adf",
+        "buildVersion": "1.0.20210806.3",
+        "environmentType": 3,
+        "resourceName": "<azure-data-factory-name>",
+        "resourceRegion": "<azure-region>",
+        "resourceGroup": "<adf-resource-group-name>",
+        "subscriptionId": "<adf-subscription-id>",
+        "sessionId": "I+Huz",
+        "operationId": "d4Ec2",
+        "gitType": "live"
+    },
+    "additionalInfo": {
+        "selectedResource": "train_rainfall",
+        "selectedResourceType": "pipeline"
+    }
+}

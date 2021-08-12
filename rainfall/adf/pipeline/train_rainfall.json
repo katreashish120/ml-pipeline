@@ -1,0 +1,64 @@
+{
+    "name": "train_rainfall",
+    "properties": {
+        "activities": [
+            {
+                "name": "train_rainfall",
+                "type": "DatabricksNotebook",
+                "dependsOn": [
+                    {
+                        "activity": "wait",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "notebookPath": "/rainfall/train_rainfall",
+                    "baseParameters": {
+                        "input_path": {
+                            "value": "@pipeline().parameters.input_path",
+                            "type": "Expression"
+                        },
+                        "model_path": {
+                            "value": "@pipeline().parameters.model_path",
+                            "type": "Expression"
+                        }
+                    }
+                },
+                "linkedServiceName": {
+                    "referenceName": "<adls-name>",
+                    "type": "LinkedServiceReference"
+                }
+            },
+            {
+                "name": "wait",
+                "type": "Wait",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "waitTimeInSeconds": 1
+                }
+            }
+        ],
+        "parameters": {
+            "input_path": {
+                "type": "string",
+                "defaultValue": "/mnt/<databricks-mount-name>/<path>/rainfall/data/*.csv"
+            },
+            "model_path": {
+                "type": "string",
+                "defaultValue": "/dbfs/mnt/<databricks-mount-name>/<path>/rainfall/model/rainfall-model.pkl"
+            }
+        },
+        "annotations": []
+    }
+}

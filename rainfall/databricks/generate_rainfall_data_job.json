@@ -1,0 +1,30 @@
+{
+    "settings": {
+        "new_cluster": {
+            "spark_version": "8.3.x-scala2.12",
+            "spark_conf": {
+                "spark.databricks.delta.preview.enabled": "true"
+            },
+            "azure_attributes": {
+                "availability": "ON_DEMAND_AZURE"
+            },
+            "node_type_id": "Standard_DS3_v2",
+            "spark_env_vars": {
+                "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+            },
+            "enable_elastic_disk": true,
+            "num_workers": 8
+        },
+        "notebook_task": {
+            "notebook_path": "/rainfall/generate_rainfall_data"
+        },
+        "email_notifications": {},
+        "name": "generate_rainfall_data",
+        "schedule": {
+            "quartz_cron_expression": "0 9 * * * ?",
+            "timezone_id": "US/Pacific",
+            "pause_status": "UNPAUSED"
+        },
+        "max_concurrent_runs": 1
+    }
+}

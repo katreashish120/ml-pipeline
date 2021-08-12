@@ -1,0 +1,17 @@
+{
+    "name": "<adls-name>",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "https://<Databricks>",
+            "existingClusterId": "<cluster-id>",
+            "encryptedCredential": "<personal-acess-token>"
+        },
+        "connectVia": {
+            "referenceName": "myintegrationruntime",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
